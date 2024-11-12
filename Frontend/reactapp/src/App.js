@@ -20,9 +20,11 @@ import Theses from './user/Theses';
 import Navwriter from './components/Navwriter';
 import Navuser from './components/Navuser';
 
+
+
 function App() {
   // const { auth } = useContext(AuthContext); // Récupération de la variable auth depuis le contexte
-  const auth ='user';
+  const auth ='writer';
   const containerClasses = auth === 'writer'
     ? 'flex flex-row gap-0'   // Style pour "writer" avec fond bleu clair et padding
     : 'bg-white'; 
