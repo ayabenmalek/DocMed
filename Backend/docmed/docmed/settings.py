@@ -38,13 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'docmedapp',
     #added by manel
     'rest_framework',
     'corsheaders',
-
-
 
 ]
 
