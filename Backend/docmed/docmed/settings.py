@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'docmedapp',
+    #added by manel
+    'rest_framework',
+    'corsheaders',
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +56,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #added by manel
+    'corsheaders.middleware.CorsMiddleware'
+
+
 ]
 
 ROOT_URLCONF = 'docmed.urls'
@@ -127,3 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+#added by manel
+CORS_ORIGIN_ALLOW_ALL = True
+
+
