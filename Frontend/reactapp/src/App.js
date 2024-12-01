@@ -19,6 +19,7 @@ import Signup from './user/Signup';
 import Theses from './user/Theses';
 import Navwriter from './components/Navwriter';
 import Navuser from './components/Navuser';
+import Footer from './components/Footer';
 
 
 
@@ -76,6 +77,9 @@ function App() {
             
               </Routes>
             </div> 
+
+            {auth === 'writer' ?  null : <Footer />}
+
           </div>
 
       </BrowserRouter>

@@ -11,6 +11,10 @@ module.exports = {
         error: '#E0245E',
         success: '#17BF63',
         warning: '#FFAD1F',
+        cblue: "#5585A9" ,
+        cbluef: "#183754",
+        cwhite : "#F4F4EC" ,
+
       },
       fontFamily: {
         ebGaramond: ['EB Garamond', 'serif'],
@@ -18,6 +22,7 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         dosis: ['Dosis', 'sans-serif'],
         quicksand: ['Quicksand', 'sans-serif'],
+        bodyfont : ["Cinzel"],
       },
     },
   },
