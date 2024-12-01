@@ -44,7 +44,6 @@ export default function Ajouter() {
   ];
 
   return (
-    <div>
     <div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', height: '100vh' }}  >
       <ReactQuill
       value={title}
@@ -68,7 +67,6 @@ export default function Ajouter() {
       {/* <h3>Contenu HTML :</h3> */}
       {/* <div className="rendered-content" dangerouslySetInnerHTML={{ __html: renderedContent  }} /> */}
     </div>
-  )
   </div>
   );
 }

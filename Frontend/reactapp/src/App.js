@@ -35,6 +35,7 @@ function App() {
               {auth === 'writer' ? <Navwriter /> : <Navuser />}
           
           
+            <div className="bg-white w-full" >
               <Routes>
                   {/* Routes pour l'utilisateur "writer" */}
                   {auth === 'writer' && (
