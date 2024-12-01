@@ -53,7 +53,7 @@ export default function Ajouter() {
       formats={formatsTitle}
       style={{ fontSize: '24px', fontWeight: 'bold', width: '30%',marginBottom: '30px',marginTop: '30px' }} 
       ></ReactQuill>
-      <h2 >Mon éditeur de texte</h2>
+      <h2 className='' >Mon éditeur de texte</h2>
       <ReactQuill
       value={content}
       onChange={handleChange}
