@@ -11,16 +11,20 @@ from .serializers import EcritSerializer
 
 class SearchEcritApiView(APIView): 
     def get(self, request): 
-        ecrit_type = request.query_params.get('type')  # Get the type (article, cours, thèse)
-
+        ecrit_type = request.query_params.get('type')  # Get the type (article, cours, these)
+        search_query = request.query_params.get('q')
 
         if ecrit_type not in ['article', 'cours', 'these']:
             return Response({"error": "Invalid type. Valid options are 'article', 'cours', or 'thèse'."},
                             status=status.HTTP_400_BAD_REQUEST)
-
-        # Filter by type and search query (if provided)
+        
         results = Ecrit.objects.filter(type=ecrit_type)
-
+        
+        if search_query:
+            results = results.filter(titre__icontains=search_query)
 
         serializer = EcritSerializer(results, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+            
+
+
