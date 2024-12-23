@@ -40,9 +40,11 @@ class Ecrit(models.Model):
     ecrivain = models.ForeignKey(Ecrivain, on_delete=models.CASCADE)
     description = models.TextField()
     contenu = models.TextField()
+    date_published = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.titre
+
 
 
 class Enrolled(models.Model):
