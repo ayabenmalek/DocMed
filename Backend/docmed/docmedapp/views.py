@@ -5,8 +5,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Ecrit,Comment
-from .serializers import EcritSerializer,CommentSerializer
+from .models import Ecrit,Comment,Favoris
+from .serializers import EcritSerializer,CommentSerializer,FavorisSerializer
 
 
 class SearchEcritApiView(APIView): 
@@ -32,5 +32,10 @@ class GetComments(APIView):
     def get(self, request, *args, **kwargs):
         results = Comment.objects.all()
         dataSerializers = CommentSerializer(results,many=True)
-        return Response({'status':'success','data':dataSerializers.data },status=200)
+        return Response({'status':'success','data':dataSerializers.data },status=200) 
 
+class GetFavoris(APIView):
+    def get(self, request, *args, **kwargs):
+        results = Favoris.objects.all()
+        dataserialised=FavorisSerializer(results,many=True)
+        return Response({'status':'success','data':dataserialised.data},status=200)
