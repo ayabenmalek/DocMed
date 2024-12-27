@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import SearchEcritApiView, EcritApiView, EcritsEcrivainApiView, InfoEcrivainApiView, AddEcritApiView, \
-    AddEcrivainApiView, DeleteEcritApiView
+from .views import SearchEcritApiView, EcritApiView, EcritsEcrivainApiView, InfoEcrivainApiView, AddEcritApiView, DeleteEcritApiView, EditEcritApiView
 
 urlpatterns = [
     path('search-ecrit/', SearchEcritApiView.as_view(), name='search-ecrit'),
