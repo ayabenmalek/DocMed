@@ -70,3 +70,4 @@ class Favoris(models.Model):
 
     class Meta:
         unique_together = ('ecrit', 'user')  
+

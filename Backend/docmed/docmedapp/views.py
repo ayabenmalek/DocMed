@@ -39,3 +39,5 @@ class GetFavoris(APIView):
         results = Favoris.objects.all()
         dataserialised=FavorisSerializer(results,many=True)
         return Response({'status':'success','data':dataserialised.data},status=200)
+    
+
