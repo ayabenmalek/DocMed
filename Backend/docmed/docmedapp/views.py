@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Ecrit,Comment,Favoris
 from .serializers import EcritSerializer,CommentSerializer,FavorisSerializer
+from datetime import datetime,timedelta 
 
 
 class SearchEcritApiView(APIView): 
@@ -40,4 +41,13 @@ class GetFavoris(APIView):
         dataserialised=FavorisSerializer(results,many=True)
         return Response({'status':'success','data':dataserialised.data},status=200)
     
+    
+class GetRecent(APIView):
+    def get(self, request, *args, **kwargs):
+        five_days_ago=datetime.now().date() - timedelta(days=5)
+
+        results = Ecrit.objects.filter(date_published__gte=five_days_ago)
+        results_serialised=EcritSerializer(results,many=True)
+        return Response({'status':'success','data':results_serialised.data},status=200)
+
 
