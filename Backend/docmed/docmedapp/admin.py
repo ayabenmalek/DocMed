@@ -13,4 +13,6 @@ class EcritAdmin(admin.ModelAdmin):
     ordering = ('-date_published',)  # Order by date_published (most recent first)
 admin.site.register(Enrolled)
 admin.site.register(Comment)
-admin.site.register(Favoris)
+@admin.register(Favoris)
+class FavorisAdmin(admin.ModelAdmin):
+    list_display = ('favorit_id', 'ecrit','user')  # Fields to display in the list view

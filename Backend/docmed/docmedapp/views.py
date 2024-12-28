@@ -8,6 +8,8 @@ from rest_framework import status
 from .models import Ecrit,Comment,Favoris
 from .serializers import EcritSerializer,CommentSerializer,FavorisSerializer
 from datetime import datetime,timedelta 
+from django.db.models import Count
+
 
 
 class SearchEcritApiView(APIView): 
@@ -50,4 +52,30 @@ class GetRecent(APIView):
         results_serialised=EcritSerializer(results,many=True)
         return Response({'status':'success','data':results_serialised.data},status=200)
 
+class GetMostLiked(APIView):
+
+    def get(self, request, *args, **kwargs):
+
+        top_ecrit = (
+            Favoris.objects
+            .values('ecrit')
+            .annotate(likes_count=(Count('user')))
+            .order_by('-likes_count')[:5]
+
+        )
+        list_ecrit_ids = (item['ecrit'] for item in top_ecrit)
+        most_liked_ecrit= Ecrit.objects.filter(ecrit_id__in=list_ecrit_ids)
+        serializer=EcritSerializer(most_liked_ecrit,many=True)
+
+        results=[
+            {
+                'ecrit': ecrit_data,
+                'likes_countes': next(item['likes_count'] for item in top_ecrit if item['ecrit'] == ecrit_data['ecrit_id'])
+            }
+            for ecrit_data in serializer.data
+        ]
+
+        return Response({'status':'success','data':results},status=status.HTTP_200_OK)
+    
+        
 
