@@ -1,12 +1,12 @@
-
+from rest_framework.exceptions import AuthenticationFailed
 # Create your views here.
 #MANEL'S VIEWS :
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Ecrit
-from .serializers import EcritSerializer
+from .models import Ecrit, Ecrivain
+from .serializers import EcritSerializer, EcrivainSerializer
 
 
 class SearchEcritApiView(APIView): 
