@@ -16,3 +16,5 @@ admin.site.register(Comment)
 @admin.register(Favoris)
 class FavorisAdmin(admin.ModelAdmin):
     list_display = ('favorit_id', 'ecrit','user')  # Fields to display in the list view
+
+

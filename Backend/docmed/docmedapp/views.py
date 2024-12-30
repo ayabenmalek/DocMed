@@ -9,6 +9,8 @@ from .models import Ecrit,Comment,Favoris
 from .serializers import EcritSerializer,CommentSerializer,FavorisSerializer
 from datetime import datetime,timedelta 
 from django.db.models import Count
+from rest_framework.decorators import api_view
+
 
 
 
@@ -77,5 +79,12 @@ class GetMostLiked(APIView):
 
         return Response({'status':'success','data':results},status=status.HTTP_200_OK)
     
-        
+@api_view(['GET'])
+def SearchEcritTitle(request):
+    query = request.GET.get('q')
+    resultats = Ecrit.objects.filter(titre__icontains=query) if query else []
+    resultats_serialised = EcritSerializer(resultats, many=True)
+    return Response({'data': resultats_serialised.data})
+
+
 
