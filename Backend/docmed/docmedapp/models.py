@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-    user_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
@@ -14,7 +14,7 @@ class User(models.Model):
 
 
 class Ecrivain(models.Model):
-    ecrivain_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
     email = models.EmailField(unique=True)

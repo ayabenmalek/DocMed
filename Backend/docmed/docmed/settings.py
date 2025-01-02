@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'docmedapp',
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     #added by manel
     'rest_framework',
     'corsheaders',
@@ -137,4 +139,13 @@ MEDIA_URL = '/media/'
 #added by manel
 CORS_ORIGIN_ALLOW_ALL = True
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT authentication for protected endpoints
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  # By default, require authentication for all views
+    ),
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',  # Optional: This handles exceptions globally
+}
 
