@@ -40,7 +40,8 @@ function App() {
                   {/* Routes pour l'utilisateur "writer" */}
                   {auth === 'writer' && (
                     <>
-                      
+                      <Route path="/Login" element={<Login />} />
+                      <Route path="/Signup" element={<Signup />} />
                       <Route path="/Dashbord" element={<Dashbord />} />
                       <Route path="/Commentaires" element={<Commentaires />} />
                       <Route path="/Ecrits" element={<Ecrits />} />
